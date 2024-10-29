@@ -67,7 +67,7 @@
             For matrix multiplication order n, the general formula is Cij = sigma(Aik + Bkj), k < n.
         </p>
         <button onclick="matrixMul(E31, E21, E31E21, 3); show_matrix(E31E21, 3, 'E31E21')">Click here to get E31.E21 matrix</button>
-        <div id="E31E21"></div>
+        <div id="E31E21">matrix e31e21</div>
     </div>
 
     <hr>
@@ -102,6 +102,29 @@
         </p>
         <button onclick="matrixMul(E32, E31E21, U, 3); show_matrix(U, 3, 'U')">Click here to get U matrix</button>
         <div id="U"></div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Calculating inverse of E32E31E21 or L</h2>
+        <p>There are two ways to calculate inverse of the matrix E32E31E21. They are mention below:</p>
+        <ul>
+            <li>
+                Calculate the inverse of E32E31E21 matrix
+                <ul>
+                    <li>Using the Cramer's Rule</li>
+                    <li>Using either Row Operation or Column Operation</li>
+                </ul>
+            </li>
+            <li>
+                Calculate inverse of individual matrix i.e., inverse of E32, inverse of E31 and inverse of E21 and multiply in the reverse order i.e., inv(E21).inv(E31).inv(E32)
+            </li>
+        </ul>
+        <p>For calculating the inverse, I am using Row Operation here.</p>
+        <button onclick="inverse_matrix(E32E31E21, L, 3, 'next'); show_matrix(L, 3, 'L')">Click here for next step</button>
+        <div id="next"></div>
+        <div id="L"></div>
     </div>
 
     <hr>
