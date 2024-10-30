@@ -4,9 +4,12 @@ let E31 = [];
 let E31E21 = [];
 let E31E21A = [];
 let E32 = [];
+let E32E31E21 = [];
 let U = [];
-let L = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+let L = [];
 let D = [];
+let LD = [];
+let LDU = [];
 
 function save_matrix(matrix,  order) {
     
@@ -109,14 +112,23 @@ function show_2matrices_sidebyside(matrix1, matrix2, order, id1, id2) {
     show_matrix(matrix2, 3, id2)
 }
 
+function get_inverse_matrix(U, L, order) {
 
-function get_inverse_matrix(U, L, order, id) {
+    for (let i = 0; i < order; i++) {
+        let R = [];
+        for(let j = 0; j < order; j++) {
+            if (i == j) 
+                R.push(1)
+            else
+                R.push(0)
+        }
+        L.push(R);
+    }
+
     for (let i = 0; i < order; i++) {
         
         for(let j = 0; j < order; j++) {
             if ((i == j) && (U[i][j] != 0)) {
-                // document.getElementById(id).innerHTML = `a${i+1}${j+1}`;
-                // document.getElementById(id).innerHTML = ``;
                 console.log(`a${i+1}${j+1} = ${L[i][j]}`)
                 console.log(`R${i+1} = R${i+1}/${L[i][j]}`)
                 U[i][j] /= U[i][j];
@@ -137,9 +149,8 @@ function get_inverse_matrix(U, L, order, id) {
             }
         }
 
-        console.log(`${U}`);
-        console.log(`${L}`);
-        console.log(`<br>`);
+        console.log(`U = ${U}`);
+        console.log(`L = ${L}`);
         
         
         for(let k = 0; k < order; k++) {
@@ -151,12 +162,22 @@ function get_inverse_matrix(U, L, order, id) {
                     L[k][l] -= L[i][l]*multiplying_factor;
                 }
 
-                console.log(`${U}`);
-                console.log(`${L}`);
-                console.log(`<br>`);
+                console.log(`U = ${U}`);
+                console.log(`L = ${L}`);
             }
         }
     }
+}
 
-    document.getElementById(id).innerHTML = L;
+function D_matrix(U, D, order) {
+    for(let i = 0; i < order; i++) {
+        let R = [];
+        for (let j = 0; j < order; j++) {
+            if (i == j)
+                R.push(U[i][j]);
+            else
+                R.push(0)
+        }
+        D.push(R)
+    }
 }

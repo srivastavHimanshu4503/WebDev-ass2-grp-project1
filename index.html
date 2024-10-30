@@ -96,11 +96,22 @@
     <hr>
 
     <div>
-        <h2>Calculating E32E31E21 or U</h2>
+        <h2>Calculating E32E31E21</h2>
         <p>
             We are multiplying E32 with E31E21 to get E32E31E21 or U.
         </p>
-        <button onclick="matrixMul(E32, E31E21, U, 3); show_matrix(U, 3, 'U')">Click here to get U matrix</button>
+        <button onclick="matrixMul(E32, E31E21, E32E31E21, 3); show_matrix(E32E31E21, 3, 'E32E31E21')">Click here to get U matrix</button>
+        <div id="E32E31E21"></div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Calculating E32E31E21A or U</h2>
+        <p>
+            We are multiplying E32 with E31E21 to get E32E31E21 or U.
+        </p>
+        <button onclick="matrixMul(E32, E31E21A, U, 3); show_matrix(U, 3, 'U')">Click here to get U matrix</button>
         <div id="U"></div>
     </div>
 
@@ -122,9 +133,29 @@
             </li>
         </ul>
         <p>For calculating the inverse, I am using Row Operation here.</p>
-        <button onclick="inverse_matrix(E32E31E21, L, 3, 'next'); show_matrix(L, 3, 'L')">Click here for next step</button>
-        <div id="next"></div>
-        <div id="L"></div>
+        <button onclick="get_inverse_matrix(E32E31E21, L, 3)">Click here to see step by step explanation in console</button>
+        <button onclick="show_matrix(L, 3, 'L')">Click here to get inverse matrix</button>
+        <div id="L">The L matrix will be shown here: </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Calculating D matrix</h2>
+        <p>The D matrix is a diagonal matrix having diagonal elements equal to the diagonal elements of U.</p>
+        <button onclick="D_matrix(U, D, 3); show_matrix(D, 3, 'D')">Click here to get matrix D</button>
+        <div id="D">The D will be shown here: </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Calculating LDU matrix</h2>
+        <p>
+            LDU decomposition (or LDU factorization) is a form of matrix decomposition used in numerical linear algebra. It involves breaking down a square matrix into the product of three simpler matrices: a lower triangular matrix (L), a diagonal matrix (D), and an upper triangular matrix (U).
+        </p>
+        <button onclick="matrixMul(L, D, LD, 3); matrixMul(LD, U, LDU, 3); show_matrix(LDU, 3, 'LDU')">Click here to get matrix LDU</button>
+        <div id="LDU">The LDU matrix will be shown here: </div>
     </div>
 
     <hr>
