@@ -3,19 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDU factorization</title>
-    <link rel="stylesheet" href="style.css">
+    <title>LDU Decomposition</title>
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>LDU factorization</h1>
+    <h1>LDU Decomposition</h1>
 
-    <!-- Taking order of the matrix from the user using input tag. -->
+    <hr>
     <div>
-        <label for="order">Enter order of matrix</label>
+        <label for="order">Enter order</label>
         <input type="text" id="order">
+        <button onclick="save_order()">Click here to save order</button>
+    </div>
+    
+    <hr>
+    <div>
+        <div>
+            <button onclick="get_matrix_A()">Click here to start giving input to matrix A</button>
+            <button onclick="show_matrix(A, 'A')">Click here to see matrix A</button>
+        </div>
+        <div id="A">
+            Matrix A will be showing here after clicking on the button.
+        </div>
+    </div>
+    
+    <hr>
+    <div>
+        <h2>U or Upper Triangular Matrix</h2>
+        <div>
+            <button onclick="U_matrix('process')">Click here to Start calculation for U</button>
+        </div>
+        <div id="process">
+
+        </div>
+    </div>
+    
+    <hr>
+    <div>
+        <div>
+            <h2>D or Diagonal Matrix</h2>
+            <button onclick="D_matrix('D_matrix_process'); show_matrix(D, 'D_matrix')">Click here to Start calculation for D</button>
+        </div>
+        <div id="D_matrix_process">
+
+        </div>
+        <div id="D_matrix">
+
+        </div>
+    </div>
+    
+    <hr>
+    <div>
+        <div>
+            <h2>L or Lower Triangular Matrix</h2>
+            <button onclick="L_matrix('L_matrix_process'), show_matrix(L, 'L_matrix')">Click here to Start calculation for L</button>
+        </div>
+        <div id="L_matrix_process">
+
+        </div>
+        <div id="L_matrix">
+
+        </div>
+    </div>
+    
+    <hr>
+    <div>
+        <h2>U dash Matrix</h2>
+        <div>
+            <button onclick="U_diagonalElem_one('U_diagonalelem_one_process'); show_matrix(U_dash, 'u_dash')">Click here to Start calculation for U'</button>
+        </div>
+        <div id="U_diagonalelem_one_process">
+
+        </div>
+        <div id="u_dash">
+
+        </div>
+    </div>
+    
+    <hr>
+    <div>
+        <h2>LDU matrix</h2>
+        <div>
+            <button onclick="LDU_multiplication('LDU_process'); show_matrix(LDU, 'LDU')">Click here to Start calculation for LDU</button>
+        </div>
+        <div id="LDU_process">
+
+        </div>
+        <div id="LDU">
+
+        </div>
     </div>
 
-    <!--  -->
+
 </body>
 </html>
