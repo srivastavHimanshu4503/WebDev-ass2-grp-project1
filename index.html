@@ -44,7 +44,7 @@
             To find element e21 we have to calculate the value of -(a21/a11) matrix A.
         </p>
         <button onclick="e2one(3); show_matrix(E21, 3, 'E21')">Click here to get E21 matrix</button>
-        <div id="E21"></div>
+        <div id="E21">The matrix E21 will be showing here.</div>
     </div>
 
     <hr>
@@ -56,7 +56,7 @@
             To find element e31 we have to calculate the value of -(a31/a11) of matrix A.
         </p>
         <button onclick="e3one(3); show_matrix(E31, 3, 'E31')">Click here to get E31 matrix</button>
-        <div id="E31"></div>
+        <div id="E31">The matrix E31 will be showing here.</div>
     </div>
 
     <hr>
@@ -67,7 +67,7 @@
             For matrix multiplication order n, the general formula is Cij = sigma(Aik + Bkj), k < n.
         </p>
         <button onclick="matrixMul(E31, E21, E31E21, 3); show_matrix(E31E21, 3, 'E31E21')">Click here to get E31.E21 matrix</button>
-        <div id="E31E21">matrix e31e21</div>
+        <div id="E31E21">The E31E21 matrix will be showing here.</div>
     </div>
 
     <hr>
@@ -78,7 +78,7 @@
             We are multiplying E21, E31, A to calculate E32.
         </p>
         <button onclick="matrixMul(E31E21, A, E31E21A, 3); show_matrix(E31E21A, 3, 'E31E21A')">Click here to get matrix E31E21A</button>
-        <div id="E31E21A"></div>
+        <div id="E31E21A">The E32E21A matrix will be showing here.</div>
     </div>
 
     <hr>
@@ -90,7 +90,7 @@
             To find element e32 we have to calculate the value of -(a32/a22) of matrix E32E21A.
         </p>
         <button onclick="e3two(3); show_matrix(E32, 3, 'E32')">Click here to get E32 matrix</button>
-        <div id="E32"></div>
+        <div id="E32">The E32 matrix will be showing here.</div>
     </div>
 
     <hr>
@@ -101,7 +101,7 @@
             We are multiplying E32 with E31E21 to get E32E31E21 or U.
         </p>
         <button onclick="matrixMul(E32, E31E21, E32E31E21, 3); show_matrix(E32E31E21, 3, 'E32E31E21')">Click here to get U matrix</button>
-        <div id="E32E31E21"></div>
+        <div id="E32E31E21">The E32E31E21 matrix will be showing here.</div>
     </div>
 
     <hr>
@@ -112,7 +112,7 @@
             We are multiplying E32 with E31E21 to get E32E31E21 or U.
         </p>
         <button onclick="matrixMul(E32, E31E21A, U, 3); show_matrix(U, 3, 'U')">Click here to get U matrix</button>
-        <div id="U"></div>
+        <div id="U">The U matrix will be showing here.</div>
     </div>
 
     <hr>
@@ -133,9 +133,20 @@
             </li>
         </ul>
         <p>For calculating the inverse, I am using Row Operation here.</p>
-        <button onclick="get_inverse_matrix(E32E31E21, L, 3)">Click here to see step by step explanation in console</button>
+        <button onclick="get_inverse_matrix(E32E31E21, L, 3)">Click here to start the operation and see step by step explanation in console</button>
         <button onclick="show_matrix(L, 3, 'L')">Click here to get inverse matrix</button>
-        <div id="L">The L matrix will be shown here: </div>
+        <div id="L">The L matrix will be showing here: </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Calculating U' matrix</h2>
+        <p>If our U matrix has pivot element other than one than it will not give us the right answer. So, to get the accurate result we need to make the pivot elements one by dividing the entire row by the its respective pivot element and named that matrix as U'.</p>
+        <p>U' matrix is obtain by dividing the row elements of U matrix by its pivot value i.e., Dividing R1 by a11, R2 by a22 and R3 by a33.</p>
+        <p>If U matrix's pivot element value is already one then U and U' will be same.</p>
+        <button onclick="U_dash_matrix(U, U_diagonal_elem_one, 3); show_matrix(U_diagonal_elem_one, 3, `U'`)">Click here to get matrix U'</button>
+        <div id="U'">The U' will be showing here: </div>
     </div>
 
     <hr>
@@ -144,7 +155,7 @@
         <h2>Calculating D matrix</h2>
         <p>The D matrix is a diagonal matrix having diagonal elements equal to the diagonal elements of U.</p>
         <button onclick="D_matrix(U, D, 3); show_matrix(D, 3, 'D')">Click here to get matrix D</button>
-        <div id="D">The D will be shown here: </div>
+        <div id="D">The D will be showing here: </div>
     </div>
 
     <hr>
@@ -154,8 +165,25 @@
         <p>
             LDU decomposition (or LDU factorization) is a form of matrix decomposition used in numerical linear algebra. It involves breaking down a square matrix into the product of three simpler matrices: a lower triangular matrix (L), a diagonal matrix (D), and an upper triangular matrix (U).
         </p>
-        <button onclick="matrixMul(L, D, LD, 3); matrixMul(LD, U, LDU, 3); show_matrix(LDU, 3, 'LDU')">Click here to get matrix LDU</button>
-        <div id="LDU">The LDU matrix will be shown here: </div>
+        <button onclick="matrixMul(L, D, LD, 3); matrixMul(LD, U_diagonal_elem_one, LDU, 3); show_matrix(LDU, 3, 'LDU')">Click here to get matrix LDU</button>
+        <div id="LDU">The LDU matrix will be showing here: </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>LDU decomposition</h2>
+        <p>
+            We've calculated matrix A and matrix L, D, U and U' successfully and we can say that A = L.D.U
+        </p>
+        <div>
+            <button onclick="show_matrix(A, 3, 'A_again')">Click here to get matrix A</button>
+            <div id="A_again">The matrix A will be showing here: </div>
+        </div>
+        <div>
+            <button onclick="show_matrix(LDU, 3, 'LDU_again')">Click here to get matrix LDU</button>
+            <div id="LDU_again">The LDU matrix will be showing here: </div>
+        </div>
     </div>
 
     <hr>

@@ -7,6 +7,7 @@ let E32 = [];
 let E32E31E21 = [];
 let U = [];
 let L = [];
+let U_diagonal_elem_one = [];
 let D = [];
 let LD = [];
 let LDU = [];
@@ -29,7 +30,8 @@ function show_matrix(matrix, order, id) {
         for(let j = 0; j < order; j++) {
             beautiful_matrix += `${matrix[i][j]} `
         }
-        beautiful_matrix += ']\n';
+        beautiful_matrix += ']';
+        beautiful_matrix += '<br>';
     }
     document.getElementById(id).innerHTML = `${beautiful_matrix}`;
 }
@@ -166,6 +168,17 @@ function get_inverse_matrix(U, L, order) {
                 console.log(`L = ${L}`);
             }
         }
+    }
+}
+
+function U_dash_matrix(U, U_diagonal_elem_one, order) {
+    for (let i = 0; i < order; i++) {
+        let R = [];
+        for (let j = 0; j < order; j++) {
+            let elem = U[i][j] / U[i][i];
+            R.push(elem);
+        }
+        U_diagonal_elem_one.push(R);
     }
 }
 
